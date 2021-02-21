@@ -41,7 +41,7 @@ then
 	git commit -m "$desc"
 	git remote -v
 	git branch -a
-	git push -u origin master
+	git push -u origin main
 	git status
 	printf "\nEnd local commit on $local; merge and push to branch $remote. Well done!\n"
 fi
