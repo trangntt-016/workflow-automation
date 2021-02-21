@@ -34,15 +34,19 @@ read yNO
 
 if [ $yNO == "Y" ]
 then
-	echo "I need your git remote address"
-	read addr
 	git add .
 	read -r -p 'Commit description: ' desc
 	git commit -m "$desc"
-	git remote -v
+	echo "Your local branches: "
 	git branch -a
-	git push -u origin main
+	echo "Your remote branches: "
+	git branch -r
+	echo 'Enter local branch you wanna commit: '
+	read localB
+	echo "Enter remote branch you wanna commit: "
+	read remote
+	git push -u $localB $remote
 	git status
-	printf "\nEnd local commit on $local; merge and push to branch $remote. Well done!\n"
+	printf "\nEnd local commit on $localB; merge and push to branch $remote. Well done!\n"
 fi
 exec bash
