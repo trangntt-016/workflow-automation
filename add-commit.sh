@@ -39,7 +39,7 @@ then
 	git add .
 	read -r -p 'Commit description: ' desc
 	git commit -m "$desc"
-	git remote add origin $addr
+	git remote -v
 	git branch -a
 	git push -u origin master
 	git status
